@@ -28,38 +28,34 @@ body {
   margin: 0;
 }
 
+header {
+  border-bottom: 2px solid var(--color-4);
+  background-color: var(--color-1);
+}
+
+header>div {
+  color: var(--background);
+  font-family: var(--font-source-sans-3);
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 10px 20px;
+  text-align: center;
+}
+
 main>div {
   padding: 0 20px;
 }
 
 h1 {
-  color: var(--background);
-  font-family: var(--font-source-sans-3);
-  padding: 10px 20px;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 20px 0;
+  text-align: center;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-form {
-  margin: 20px 0;
-}
-
-input {
-  background-color: #ffffff;
-  border: 1px solid var(--foreground);
-  padding: 4px;
-}
-
-button {
-  background-color: var(--color-3);
-  border: none;
-  color: var(--background);
-  font-weight: 600;
-  padding: 5px;
-  margin: 0 10px;
 }
 
 ul {
@@ -75,4 +71,19 @@ img {
   html {
     color-scheme: dark;
   }
+}
+
+.max1400 {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.button {
+  background-color: var(--color-3);
+  border: none;
+  color: var(--background);
+  display: inline-block;
+  font-weight: 600;
+  padding: 8px 10;
+  margin: 16px 0;
 }

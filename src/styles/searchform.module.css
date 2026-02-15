@@ -1,0 +1,12 @@
+.search {
+  margin: 20px auto 40px;
+  text-align: center;
+}
+
+.search input {
+  background-color: #ffffff;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+  padding: 6px 4px;
+  margin-right: 10px
+}

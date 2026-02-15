@@ -1,0 +1,94 @@
+.recipeDetail {
+  padding-bottom: 40px;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.imageWrapper {
+  margin-bottom: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-2);
+}
+
+.imageWrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--color-1);
+}
+
+.healthList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.healthBadge {
+  padding: 6px 12px;
+  background-color: var(--color-2);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.ingredientList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ingredientItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 12px;
+  background-color: var(--color-2);
+  border-radius: 4px;
+}
+
+.ingredientName {
+  font-weight: 500;
+}
+
+.ingredientMeasure {
+  color: var(--color-1);
+  flex-shrink: 0;
+}
+
+.instructions {
+  line-height: 1.6;
+}
+
+.instructions p {
+  margin-bottom: 12px;
+}
+
+.instructions ol,
+.instructions ul {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.instructionSteps {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.instructionSteps li {
+  margin-bottom: 12px;
+}
