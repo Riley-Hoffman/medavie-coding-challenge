@@ -37,9 +37,13 @@ header>div {
   color: var(--background);
   font-family: var(--font-source-sans-3);
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 10px 20px;
   text-align: center;
+}
+
+header svg {
+  max-width: 2.5rem;
 }
 
 main>div {
