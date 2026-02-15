@@ -4,9 +4,12 @@
 }
 
 .search input {
-  background-color: #ffffff;
+  background-color: var(--color-2);
+  border-radius: 10px;
   color: var(--foreground);
   border: 1px solid var(--foreground);
   padding: 6px 4px;
-  margin-right: 10px
+  margin-right: 10px;
+  width: 500px;
+  max-width: calc(100% - 76px);
 }

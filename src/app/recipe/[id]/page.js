@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getRecipeById } from "../../../lib/getRecipes";
+import { getRecipeById } from "@/lib/getRecipes";
 import styles from "@/styles/recipe.module.css";
 
 export default async function RecipePage({ params }) {
