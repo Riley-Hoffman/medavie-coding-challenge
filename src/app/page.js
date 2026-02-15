@@ -25,6 +25,17 @@ export default async function Home({ searchParams }) {
       <div className='max1400'>
         <h1>Find the Perfect Recipe</h1>
         <SearchForm />
+        {query && (
+          <p className={styles.resultsInfo}>
+            Found {totalResults} results for &quot;{query}&quot;
+            {totalPages > 1 && (
+              <span>
+                {" "}
+                (Page {page} of {totalPages})
+              </span>
+            )}
+          </p>
+        )}
         <ul className={styles.resultsList}>
           {results.map((recipe) => (
             <li key={recipe.id}>
@@ -45,7 +56,7 @@ export default async function Home({ searchParams }) {
             {page > 1 ? (
               <Link
                 href={href(page - 1)}
-                className={styles.pageLink + " " + "button"}
+                className={`${styles.pageLink} button`}
               >
                 ← Previous
               </Link>
@@ -58,7 +69,7 @@ export default async function Home({ searchParams }) {
             {page < totalPages ? (
               <Link
                 href={href(page + 1)}
-                className={styles.pageLink + " " + "button"}
+                className={`${styles.pageLink} button`}
               >
                 Next →
               </Link>
