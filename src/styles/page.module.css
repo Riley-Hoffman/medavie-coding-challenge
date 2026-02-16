@@ -50,12 +50,7 @@
   padding: 16px 0;
 }
 
-.pageLinkDisabled {
-  color: var(--color-3);
-  cursor: not-allowed;
-}
-
 .pageInfo {
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 500
 }

@@ -71,6 +71,22 @@ img {
   height: auto;
 }
 
+footer {
+  border-top: 2px solid var(--color-5);
+  background-color: var(--color-1);
+  color: var(--background);
+  font-family: var(--font-source-sans-3);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+footer>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
 .max1000,
 .max1400 {
   margin: 0 auto;

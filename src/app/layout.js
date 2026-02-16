@@ -1,5 +1,6 @@
 import { Source_Sans_3 } from "next/font/google";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 import "../styles/globals.css";
 
 const sourceSans3 = Source_Sans_3({
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={`${sourceSans3.variable}`}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

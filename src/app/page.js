@@ -54,10 +54,7 @@ export default async function Home({ searchParams }) {
         {totalPages > 1 && (
           <nav className={styles.pagination} aria-label='Search results pages'>
             {page > 1 ? (
-              <Link
-                href={href(page - 1)}
-                className={`${styles.pageLink} button`}
-              >
+              <Link href={href(page - 1)} className='button'>
                 ← Previous
               </Link>
             ) : (
@@ -67,14 +64,11 @@ export default async function Home({ searchParams }) {
               Page {page} of {totalPages}
             </span>
             {page < totalPages ? (
-              <Link
-                href={href(page + 1)}
-                className={`${styles.pageLink} button`}
-              >
+              <Link href={href(page + 1)} className='button'>
                 Next →
               </Link>
             ) : (
-              <span className={styles.pageLinkDisabled}>Next →</span>
+              ""
             )}
           </nav>
         )}
