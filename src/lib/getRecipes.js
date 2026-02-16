@@ -1,6 +1,6 @@
 const RESULTS_PER_PAGE = 5;
 
-export async function getRecipes(query, page = 1) {
+export async function getRecipes(query, page = 1, cuisine = "") {
   const api_key = process.env.SPOONACULAR_API_KEY;
   if (!api_key) {
     throw new Error(
@@ -9,7 +9,18 @@ export async function getRecipes(query, page = 1) {
   }
 
   const offset = (Math.max(1, page) - 1) * RESULTS_PER_PAGE;
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${api_key}&query=${encodeURIComponent(query || "")}&number=${RESULTS_PER_PAGE}&offset=${offset}`;
+  const params = new URLSearchParams({
+    apiKey: api_key,
+    query: query || "",
+    number: RESULTS_PER_PAGE.toString(),
+    offset: offset.toString(),
+  });
+  
+  if (cuisine) {
+    params.set("cuisine", cuisine);
+  }
+  
+  const url = `https://api.spoonacular.com/recipes/complexSearch?${params.toString()}`;
   const res = await fetch(url);
 
   if (!res.ok) {

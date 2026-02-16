@@ -1,33 +1,53 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { SearchForm } from "../components/SearchForm";
+import { CuisineFilter } from "../components/CuisineFilter";
 import { getRecipes } from "../lib/getRecipes";
 import styles from "../styles/page.module.css";
 
 export default async function Home({ searchParams }) {
   const params = await searchParams;
   const query = params.search || "";
+  const cuisine = params.cuisine || "";
   const page = Math.max(1, parseInt(params.page, 10) || 1);
 
-  const data = await getRecipes(query, page);
+  const data = await getRecipes(query, page, cuisine);
   const results = data.results || [];
   const totalResults = data.totalResults || 0;
   const resultsPerPage = data.resultsPerPage || 5;
   const totalPages = Math.ceil(totalResults / resultsPerPage) || 1;
 
-  const searchQuery = query ? `search=${encodeURIComponent(query)}` : "";
-  const pageParam = (p) =>
-    [searchQuery, p > 1 ? `page=${p}` : ""].filter(Boolean).join("&");
-  const href = (p) => (pageParam(p) ? `/?${pageParam(p)}` : "/");
+  const buildParams = (p) => {
+    const urlParams = new URLSearchParams();
+    if (query) urlParams.set("search", query);
+    if (cuisine) urlParams.set("cuisine", cuisine);
+    if (p > 1) urlParams.set("page", p.toString());
+    const queryString = urlParams.toString();
+    return queryString ? `/?${queryString}` : "/";
+  };
+
+  const href = (p) => buildParams(p);
 
   return (
     <>
-      <div className='max1000'>
+      <div className={`${styles.homeContainer} max1000`}>
         <h1>Find the Perfect Recipe</h1>
-        <SearchForm />
-        {query && (
+        <SearchForm cuisine={cuisine} />
+        <Suspense
+          fallback={
+            <div style={{ textAlign: "center", margin: "20px 0" }}>
+              Loading filters...
+            </div>
+          }
+        >
+          <CuisineFilter />
+        </Suspense>
+        {(query || cuisine) && (
           <p className={styles.resultsInfo}>
-            Found {totalResults} results for &quot;{query}&quot;
+            Found {totalResults} results
+            {query && ` for "${query}"`}
+            {cuisine && ` in ${cuisine} cuisine`}
             {totalPages > 1 && (
               <span>
                 {" "}
@@ -36,7 +56,7 @@ export default async function Home({ searchParams }) {
             )}
           </p>
         )}
-        <ul className={styles.resultsList}>
+        <ul className={`${styles.resultsList} max1000`}>
           {results.map((recipe) => (
             <li key={recipe.id}>
               <Link href={`/recipe/${recipe.id}`}>
