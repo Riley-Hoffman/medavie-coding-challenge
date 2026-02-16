@@ -30,15 +30,14 @@ export default async function RecipePage({ params }) {
           {recipe.sourceName}
         </a>
         {recipe.image && (
-          <div className={styles.imageWrapper}>
-            <Image
-              src={recipe.image}
-              alt={recipe.title}
-              width={636}
-              height={393}
-              preload={true}
-            />
-          </div>
+          <Image
+            className={styles.recipeImage}
+            src={recipe.image}
+            alt={recipe.title}
+            width={636}
+            height={393}
+            preload={true}
+          />
         )}
         {healthLabels.length > 0 && (
           <section className={styles.section}>

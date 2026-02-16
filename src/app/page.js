@@ -22,7 +22,7 @@ export default async function Home({ searchParams }) {
 
   return (
     <>
-      <div className='max1400'>
+      <div className='max1000'>
         <h1>Find the Perfect Recipe</h1>
         <SearchForm />
         {query && (
