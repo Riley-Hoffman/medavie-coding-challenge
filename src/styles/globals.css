@@ -4,8 +4,7 @@
   --color-1: #03634E;
   --color-2: #f4f4e9;
   --color-3: #25171A;
-  --color-4: #E9724C;
-  --color-5: #56494E;
+  --color-4: #56494E;
 }
 
 html,
@@ -69,6 +68,22 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+footer {
+  border-top: 2px solid var(--color-4);
+  background-color: var(--color-1);
+  color: var(--background);
+  font-family: var(--font-source-sans-3);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+footer>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .max1000,
